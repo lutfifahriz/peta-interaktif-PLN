@@ -67,7 +67,6 @@ const map = L.map("map", {
   fadeAnimation: true,
 });
 
-
 // Tile Layer (OpenStreetMap)
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -76,7 +75,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 map.scrollWheelZoom.enable();
 map.options.scrollWheelZoom = "center";
-
 
 // Zoom control
 L.control.zoom({ position: "bottomright" }).addTo(map);
@@ -142,6 +140,7 @@ function searchLocation() {
     alert("Lokasi tidak ditemukan. Coba cek ejaan atau nama lokasi.");
   }
 }
+
 function toggleDarkMode() {
   const body = document.body;
   const button = document.getElementById("darkModeBtn");
@@ -166,6 +165,7 @@ window.onload = () => {
     if (button) button.innerHTML = "☀️ Light Mode";
   }
 };
+
 let routingControl = null;
 
 // Populate dropdown
@@ -215,4 +215,5 @@ function routeBetweenPoints() {
     show: false
   }).addTo(map);
 }
+
 populateDropdowns();
