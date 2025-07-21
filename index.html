@@ -134,6 +134,28 @@
         width: 100%;
       }
     }
+    <style>
+  #routing-container {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  #routing-container select,
+  #routing-container button {
+    padding: 6px;
+    font-size: 14px;
+  }
+</style>
+
   </style>
 </head>
 
@@ -147,6 +169,17 @@
   </div>
 <div id="dark-toggle">
   <button id="darkModeBtn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</div>
+<div id="routing-container">
+  <select id="start-select">
+    <option value="">Pilih Titik Awal</option>
+  </select>
+
+  <select id="end-select">
+    <option value="">Pilih Titik Tujuan</option>
+  </select>
+
+  <button onclick="routeBetweenPoints()">Tampilkan Rute</button>
 </div>
 
   <!-- Peta -->
