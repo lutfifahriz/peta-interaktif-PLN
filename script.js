@@ -6,7 +6,7 @@ const locations = [
     coords: [-6.884423, 109.671590],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Pekalongan Kota",
@@ -14,7 +14,7 @@ const locations = [
     coords: [-6.891378, 109.675415],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Wiradesa",
@@ -22,7 +22,7 @@ const locations = [
     coords: [-6.943888, 109.584138],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Kajen",
@@ -30,7 +30,7 @@ const locations = [
     coords: [-7.031043, 109.611188],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Pemalang",
@@ -38,7 +38,7 @@ const locations = [
     coords: [-6.889738, 109.379155],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Randudongkal",
@@ -46,7 +46,7 @@ const locations = [
     coords: [-7.099443, 109.380652],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   },
   {
     name: "ULP Bantarbolang",
@@ -54,7 +54,7 @@ const locations = [
     coords: [-7.054902, 109.273879],
     type: "Electric utility company",
     hours: "Senin–Jumat: 08.00–16.00",
-    images: ["image/gambar.jpg", "image/gambar.jpg"]
+    images: ["gambar.jpg", "gambar.jpg"]
   }
 ];
 
