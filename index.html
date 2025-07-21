@@ -9,13 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Styling -->
   <style>
     * {
       margin: 0;
@@ -44,7 +38,6 @@
       padding: 12px 16px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -79,6 +72,27 @@
       text-align: center;
     }
 
+    #routing-container {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    #routing-container select,
+    #routing-container button {
+      padding: 6px;
+      font-size: 14px;
+    }
+
     .popup-content {
       max-width: 300px;
       color: #333;
@@ -111,6 +125,22 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
+    #dark-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    #dark-toggle button {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+
     footer {
       position: fixed;
       bottom: 0;
@@ -124,7 +154,7 @@
     }
 
     @media (max-width: 600px) {
-      #search-container {
+      #search-container, #routing-container {
         width: 90%;
         left: 5%;
         transform: none;
@@ -133,61 +163,58 @@
       #search-box {
         width: 100%;
       }
-    }
-    <style>
-  #routing-container {
-    position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    background: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  #routing-container select,
-  #routing-container button {
-    padding: 6px;
-    font-size: 14px;
-  }
-</style>
 
+      #routing-container {
+        top: 150px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    body.dark {
+      background-color: #1c1c1c;
+      color: white;
+    }
+
+    body.dark #search-container,
+    body.dark #routing-container {
+      background: #2a2a2a;
+      color: white;
+    }
+
+    body.dark .popup-content {
+      color: white;
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- Kolom Pencarian & Judul -->
   <div id="search-container">
     <input type="text" id="search-box" placeholder="Cari nama lokasi PLN...">
     <button onclick="searchLocation()">Cari</button>
     <div id="title">PLN Maps Interaktif</div>
   </div>
-<div id="dark-toggle">
-  <button id="darkModeBtn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-</div>
-<div id="routing-container">
-  <select id="start-select">
-    <option value="">Pilih Titik Awal</option>
-  </select>
 
-  <select id="end-select">
-    <option value="">Pilih Titik Tujuan</option>
-  </select>
+  <div id="dark-toggle">
+    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </div>
 
-  <button onclick="routeBetweenPoints()">Tampilkan Rute</button>
-</div>
+  <div id="routing-container">
+    <select id="start-select">
+      <option value="">Pilih Titik Awal</option>
+    </select>
+    <select id="end-select">
+      <option value="">Pilih Titik Tujuan</option>
+    </select>
+    <button onclick="routeBetweenPoints()">Tampilkan Rute</button>
+  </div>
 
-  <!-- Peta -->
   <div id="map"></div>
 
-  <!-- Leaflet & Plugin -->
+  <!-- Script Leaflet dan Plugin -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
   <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
   <script src="script.js"></script>
 </body>
+</html>
