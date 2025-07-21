@@ -1,17 +1,19 @@
-/* ==== RESET DAN LAYOUT ==== */
+/* ==== RESET & DASAR ==== */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
+  transition: all 0.25s ease-in-out;
 }
 
 #map {
   height: 100vh;
   width: 100%;
+  transition: all 0.25s ease-in-out;
 }
 
-/* ==== SEARCH BOX DAN JUDUL ==== */
+/* ==== SEARCH BOX & JUDUL ==== */
 #search-container {
   position: absolute;
   top: 10px;
@@ -56,6 +58,45 @@ body, html {
   font-weight: bold;
   color: #333;
   margin-top: 4px;
+}
+
+/* ==== DARK MODE TOGGLE ==== */
+#dark-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#dark-toggle button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==== ROUTING ==== */
+#routing-container {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#routing-container select,
+#routing-container button {
+  padding: 6px;
+  font-size: 14px;
 }
 
 /* ==== POPUP KONTEN ==== */
@@ -107,9 +148,9 @@ footer {
   z-index: 999;
 }
 
-/* ==== RESPONSIF KHUSUS HP ==== */
+/* ==== RESPONSIF ==== */
 @media (max-width: 600px) {
-  #search-container {
+  #search-container, #routing-container {
     width: 90%;
     left: 5%;
     transform: none;
@@ -131,15 +172,23 @@ footer {
   .popup-images img {
     height: auto;
   }
+
+  #routing-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
+
+/* ==== DARK MODE ==== */
 body.dark {
   background-color: #121212;
   color: #f1f1f1;
 }
 
-body.dark #search-container {
+body.dark #search-container,
+body.dark #routing-container {
   background: #1e1e1e;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
 }
 
 body.dark #search-box {
@@ -148,7 +197,9 @@ body.dark #search-box {
   border: 1px solid #555;
 }
 
-body.dark #search-container button {
+body.dark #search-container button,
+body.dark #routing-container button,
+body.dark #dark-toggle button {
   background: #333;
   color: #fff;
 }
@@ -168,11 +219,4 @@ body.dark .popup-content h3 {
 
 body.dark .info-item {
   color: #ccc;
-}
-
-#dark-toggle {
-  margin-top: 4px;
-}
-body, #map, button, input {
-  transition: all 0.25s ease-in-out;
 }
