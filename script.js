@@ -166,3 +166,53 @@ window.onload = () => {
     if (button) button.innerHTML = "☀️ Light Mode";
   }
 };
+let routingControl = null;
+
+// Populate dropdown
+function populateDropdowns() {
+  const startSelect = document.getElementById("start-select");
+  const endSelect = document.getElementById("end-select");
+
+  locations.forEach((loc, index) => {
+    const optionStart = document.createElement("option");
+    optionStart.value = index;
+    optionStart.textContent = loc.name;
+
+    const optionEnd = document.createElement("option");
+    optionEnd.value = index;
+    optionEnd.textContent = loc.name;
+
+    startSelect.appendChild(optionStart);
+    endSelect.appendChild(optionEnd);
+  });
+}
+
+// Rute antar dua titik
+function routeBetweenPoints() {
+  const startIndex = document.getElementById("start-select").value;
+  const endIndex = document.getElementById("end-select").value;
+
+  if (startIndex === "" || endIndex === "") {
+    alert("Pilih titik awal dan tujuan.");
+    return;
+  }
+
+  const startCoords = locations[startIndex].coords;
+  const endCoords = locations[endIndex].coords;
+
+  // Hapus rute sebelumnya jika ada
+  if (routingControl) {
+    map.removeControl(routingControl);
+  }
+
+  routingControl = L.Routing.control({
+    waypoints: [
+      L.latLng(startCoords[0], startCoords[1]),
+      L.latLng(endCoords[0], endCoords[1])
+    ],
+    routeWhileDragging: true,
+    language: "id",
+    show: false
+  }).addTo(map);
+}
+populateDropdowns();
